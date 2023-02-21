@@ -1,24 +1,30 @@
 import csv
+import os
+
 
 active_users = []
 adobe_users = []
 free_licenses = []
 
 def get_active_users():
-    with open('csv/active_employees.csv', 'r') as f:
-        reader = csv.reader(f)
-        
-        for row in reader:
-            active_users.append(row[1].lower())       
+    for file in os.listdir('csv'):
+        if 'active' in file or 'employees' in file and file.endswith('.csv'):
+            with open('csv/active_employees.csv', 'r') as f:
+                reader = csv.reader(f)
+                
+                for row in reader:
+                    active_users.append(row[1].lower())       
     
         
 def get_adobe_users():
-    with open('csv/users2wwq.csv', 'r') as f:
-        reader = csv.reader(f, delimiter=",")
+    for file in os.listdir('csv'):
+        if file.startswith('users') and file.endswith('.csv'):
+            with open('csv/%s' % file, 'r') as f:
+                reader = csv.reader(f, delimiter=",")
+                    
+                for col in reader:
+                    adobe_users.append(col[1].lower())
             
-        for col in reader:
-            adobe_users.append(col[1].lower())
-      
            
 def crosscheck_users(adobe_users, active_users):
    for adobeuser in adobe_users:
