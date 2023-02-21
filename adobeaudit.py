@@ -13,7 +13,7 @@ def get_active_users():
     
         
 def get_adobe_users():
-    with open('csv/users2.csv', 'r') as f:
+    with open('csv/users2wwq.csv', 'r') as f:
         reader = csv.reader(f, delimiter=",")
             
         for col in reader:
