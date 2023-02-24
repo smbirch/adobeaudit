@@ -2,6 +2,10 @@ import csv
 import os
 
 
+# todo:
+# allow drag and drop of csv files into terminal
+
+
 active_users = []
 adobe_users = []
 free_licenses = []
@@ -21,7 +25,7 @@ def main():
     get_active_users()
     get_adobe_users()
     crosscheck_users(adobe_users, active_users)
-    print("\n\nThese are the users who are no longer active, but still have Adobe licenses:")
+    print("\n\nThese are the users who are not on the list of active employees, but still have Adobe licenses:")
     print(free_licenses)
     print("\nThere are %s licenses free." % len(free_licenses))
     print("\n*Please double check these users before removing their licenses*\n")
