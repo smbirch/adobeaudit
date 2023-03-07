@@ -1,11 +1,10 @@
 import csv
 import time
-import os
-import sys
 
 active_users_list = []
 adobe_users_list = []
 free_licenses = []
+
 
 def main():
     print("\nThis tool will help you audit Adobe licenses.")
